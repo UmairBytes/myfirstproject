@@ -11,27 +11,6 @@ public class MyfirstprojectApplication {
 		SpringApplication.run(MyfirstprojectApplication.class, args);
         System.out.println("this is my first web page");
 	}
-
-    @RestController
-    @RequestMapping("/api/movies")
-    public static class movies{
-
-        @GetMapping
-        public String getAllMovies(){
-            return "Here is your List of all Movies";
-        }
-
-        @GetMapping("/{id}")
-        public String getSpecificMovie(@PathVariable String id){
-            return "Here is your requested " + id + " movie ";
-        }
-        
-        @PostMapping
-        public String createNewMovie(){
-            double randamId= Math.floor(Math.random()*100);
-            return "Movie sucessfully created with id " + randamId;
-        }
-    }
 }
 
 
