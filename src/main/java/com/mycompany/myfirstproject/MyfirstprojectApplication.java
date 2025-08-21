@@ -10,4 +10,8 @@ public class MyfirstprojectApplication {
 		SpringApplication.run(MyfirstprojectApplication.class, args);
 	}
 
+    public string getAllMovies(){
+        return "Here is your List of all Movies"
+    }
+
 }
