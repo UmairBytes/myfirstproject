@@ -2,17 +2,19 @@ package com.mycompany.myfirstproject.controllers;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 
 //localhost:8080           /api/movies
 @RestController
 @RequestMapping("/api/movies")
 public class MovieController{
 
-    @GetMapping
-    public String getAllMovies(){
-        return "<h1  style=\"color:red;\">here is your list of all movies</h1> <script>alert(\"running javascript\")</script>";
-
-    }
+//    @GetMapping
+//    public String getAllMovies(){
+//        return "<h1  style=\"color:red;\">here is your list of all movies</h1> <script>alert(\"running javascript\")</script>";
+//
+//    }
 
     @GetMapping("/bahubali")
     public String getSpecificMovie(){
@@ -30,6 +32,11 @@ public class MovieController{
         //some processing
         double randomid = Math.floor(Math.random()*100);
         return "movie successfully created with id "+randomid;
+    }
+
+    @GetMapping("/{id}/comments")
+    public String getComments(@PathVariable String id){
+        return  id + "movie is good";
     }
 }
 
