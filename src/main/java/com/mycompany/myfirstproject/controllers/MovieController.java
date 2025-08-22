@@ -1,6 +1,7 @@
 package com.mycompany.myfirstproject.controllers;
 
 import com.mycompany.myfirstproject.services.MovieService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -13,7 +14,10 @@ import java.util.Map;
 @RequestMapping("/api/movies")
 public class MovieController{
 
-    private final MovieService movieService = new MovieService();
+    @Autowired
+    private MovieService movieService;
+
+
 
     @GetMapping
     public List<Map<String,String>> getAllMovies(){

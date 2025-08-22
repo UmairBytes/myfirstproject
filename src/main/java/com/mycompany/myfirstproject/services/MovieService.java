@@ -1,14 +1,22 @@
 package com.mycompany.myfirstproject.services;
 
 import com.mycompany.myfirstproject.repository.MovieRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class MovieService {
 
-    private final MovieRepository movieRepo = new MovieRepository();
+    public MovieService(MovieRepository movieRepo){
+        System.out.println("Initializing Movie Service");
+    }
+
+    @Autowired
+    private MovieRepository movieRepo;
 
     public List<Map<String,String>> getAllMovies(){
 
