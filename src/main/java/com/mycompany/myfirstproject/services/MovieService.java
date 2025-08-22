@@ -1,10 +1,14 @@
 package com.mycompany.myfirstproject.services;
 
+import com.mycompany.myfirstproject.repository.MovieRepository;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class MovieService {
+
+    private final MovieRepository movieRepo = new MovieRepository();
 
     public List<Map<String,String>> getAllMovies(){
 
@@ -12,27 +16,15 @@ public class MovieService {
 
         boolean isSubscribedUser = num>90.0;
 
+
+
         if(isSubscribedUser){
-            return getMoviesForSubscribedUsers();
+            return  movieRepo.getMoviesForSubscribedUsers();
         }
 
-        return getMoviesForPhugatUsers();
+        return movieRepo.getMoviesForPhugatUsers();
     }
 
-    private List<Map<String,String>> getMoviesForSubscribedUsers(){
-        List<Map<String,String>> listOfMovies = new ArrayList<>();
-        listOfMovies.add(Map.of("id","123","name","bahubali"));
-        listOfMovies.add(Map.of("id","124","name","RRR"));
 
-        return listOfMovies;
-    }
-
-    private List<Map<String,String>> getMoviesForPhugatUsers(){
-        List<Map<String,String>> listOfMovies = new ArrayList<>();
-        listOfMovies.add(Map.of("id","112","name","suryavansham"));
-        listOfMovies.add(Map.of("id","114","name","koi mil gaya"));
-
-        return listOfMovies;
-    }
 
 }

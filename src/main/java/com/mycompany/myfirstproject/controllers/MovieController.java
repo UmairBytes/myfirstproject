@@ -15,7 +15,7 @@ public class MovieController{
 
     private final MovieService movieService = new MovieService();
 
-    @GetMapping("/")
+    @GetMapping
     public List<Map<String,String>> getAllMovies(){
         return movieService.getAllMovies();
     }
@@ -30,6 +30,8 @@ public class MovieController{
         Map<String,String> mpp = new HashMap<>();
         mpp.put("id","123");
         mpp.put("name","nanu");
+
+
 
         return mpp;
     }
