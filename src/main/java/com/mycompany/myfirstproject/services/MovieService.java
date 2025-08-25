@@ -27,12 +27,12 @@ public class MovieService {
 
 
         if(isSubscribedUser){
-            return  movieRepo.getMoviesForSubscribedUsers();
+//            return  movieRepo.getMoviesForSubscribedUsers();
+            return null;
         }
 
-        return movieRepo.getMoviesForPhugatUsers();
+//        return movieRepo.getMoviesForPhugatUsers();
+        return null;
     }
-
-
 
 }
