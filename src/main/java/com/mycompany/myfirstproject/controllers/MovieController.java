@@ -1,7 +1,9 @@
 package com.mycompany.myfirstproject.controllers;
 
+import com.mycompany.myfirstproject.entity.Movie;
 import com.mycompany.myfirstproject.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -19,35 +21,26 @@ public class MovieController{
 
 
 
-    @GetMapping
-    public List<Map<String,String>> getAllMovies(){
-        return movieService.getAllMovies();
-    }
 
-    @GetMapping("/bahubali")
-    public String getSpecificMovie(){
-        return "Here is your bahubali volue katappa";
-    }
+
 
     @GetMapping("/{id}")
-    public Map<String,String> getSpecificMovie1(@PathVariable String id){
-        Map<String,String> mpp = new HashMap<>();
-        mpp.put("id","123");
-        mpp.put("name","nanu");
+    public ResponseEntity<Movie> getSpecificMovie1(@PathVariable Long id){
 
+        Movie retrivedMovie = movieService.getMovieFromId(id);
 
-
-        return mpp;
+        return ResponseEntity.ok(retrivedMovie);
     }
 
 
 
 
     @PostMapping
-    public String createNewMovie(){
+    public ResponseEntity<Movie> createNewMovie(@RequestBody Movie body){
         //some processing
-        double randomid = Math.floor(Math.random()*100);
-        return "movie successfully created with id "+randomid;
+        Movie movie = movieService.createMovie(body);
+        return ResponseEntity.ok(movie);
     }
+
 }
 
