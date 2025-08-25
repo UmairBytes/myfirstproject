@@ -19,6 +19,16 @@ public class MovieController{
     @Autowired
     private MovieService movieService;
 
+    //1 contoller
+    //movieservice(repo)
+
+
+    @GetMapping
+    public ResponseEntity<List<Movie>> getAllMovies(){
+        List<Movie> movies =  movieService.getMyMovies();
+        return ResponseEntity.ok(movies);
+    }
+
 
 
 
