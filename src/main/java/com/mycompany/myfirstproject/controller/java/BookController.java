@@ -29,6 +29,12 @@ public class BookController {
         return ResponseEntity.ok(retrivedBook);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Book>getDeleteBook(@PathVariable Long id){
+         bookService.deleteBookById(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @PostMapping
     public ResponseEntity<Book>createNewBook(@RequestBody Book body){
         Book book = bookService.createBook(body);
