@@ -4,8 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-#ignore docker compsoe file
-docker-compose.yml
+
 
 ### STS ###
 .apt_generated
