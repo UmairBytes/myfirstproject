@@ -1,16 +1,17 @@
 services:
-  db_books:
+  db:
     image: postgres:17
-    container_name: postgres_books
-    restart: always
+    container_name: postgres17
+    restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: booksdb
+      POSTGRES_DB: moviesdb
     ports:
-      - "5433:5432"   # different port on host
+      - "5432:5432"
     volumes:
-      - postgres_books_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -24,10 +25,10 @@ services:
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     depends_on:
-      - db_books
+      - db
 
 volumes:
-  postgres_books_data:
+  postgres_data:
     driver: local
   pgadmin_data:
     driver: local

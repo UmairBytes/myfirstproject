@@ -2,6 +2,7 @@ package com.mycompany.myfirstproject.controllers;
 
 import com.mycompany.myfirstproject.entity.Movie;
 import com.mycompany.myfirstproject.services.MovieService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +15,10 @@ import java.util.Map;
 //localhost:8080           /api/movies
 @RestController
 @RequestMapping("/api/movies")
+@RequiredArgsConstructor
 public class MovieController{
 
-    @Autowired
-    private MovieService movieService;
-
-    //1 contoller
-    //movieservice(repo)
+    private final MovieService movieService;
 
 
     @GetMapping
