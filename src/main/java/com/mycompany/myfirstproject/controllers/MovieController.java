@@ -1,5 +1,6 @@
 package com.mycompany.myfirstproject.controllers;
 
+import com.mycompany.myfirstproject.dto.MovieReponseDTO;
 import com.mycompany.myfirstproject.entity.Movie;
 import com.mycompany.myfirstproject.services.MovieService;
 import lombok.RequiredArgsConstructor;
@@ -33,9 +34,9 @@ public class MovieController{
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Movie> getSpecificMovie1(@PathVariable Long id){
+    public ResponseEntity<MovieReponseDTO> getSpecificMovie1(@PathVariable Long id){
 
-        Movie retrivedMovie = movieService.getMovieFromId(id);
+        MovieReponseDTO retrivedMovie = movieService.getMovieFromId(id);
 
         return ResponseEntity.ok(retrivedMovie);
     }
