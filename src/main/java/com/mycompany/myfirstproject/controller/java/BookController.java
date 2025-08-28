@@ -1,6 +1,5 @@
 package com.mycompany.myfirstproject.controller.java;
 
-import com.mycompany.myfirstproject.entity.Book;
 import com.mycompany.myfirstproject.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

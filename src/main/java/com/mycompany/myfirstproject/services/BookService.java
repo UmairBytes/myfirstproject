@@ -1,7 +1,5 @@
 package com.mycompany.myfirstproject.services;
 
-import com.mycompany.myfirstproject.entity.Book;
-import com.mycompany.myfirstproject.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
