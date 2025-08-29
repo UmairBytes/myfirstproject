@@ -1,6 +1,9 @@
 
 package com.mycompany.myfirstproject.services;
 
+import com.mycompany.myfirstproject.Dto.MovieMapper;
+import com.mycompany.myfirstproject.Dto.MovieResponeDto;
+import com.mycompany.myfirstproject.Dto.PostMapper;
 import com.mycompany.myfirstproject.entity.Movie;
 import com.mycompany.myfirstproject.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +23,19 @@ public class MovieService {
 
     }
 
-    public Movie getMovieFromId(Long id){
-        return movieRepo.findById(id).orElseThrow();
+    public MovieResponeDto getMovieFromId(Long id){
+        Movie movie =  movieRepo.findById(id).orElseThrow();
+        MovieResponeDto dto = MovieMapper.toDto(movie);
+        return dto;
 
     }
 
-    public Movie createMovie(Movie movieObj){
-        return movieRepo.save(movieObj);
+    public MovieResponeDto createMovie(MovieResponeDto movieDto){
+        Movie actualMovie = PostMapper.DtoTo(movieDto);
+
+        movieRepo.save(actualMovie);
+
+        return movieDto;
 
     }
 
