@@ -1,6 +1,7 @@
 package com.mycompany.myfirstproject.controllers;
 
 import com.mycompany.myfirstproject.dto.MovieReponseDTO;
+import com.mycompany.myfirstproject.dto.MovieRequestDTO;
 import com.mycompany.myfirstproject.entity.Movie;
 import com.mycompany.myfirstproject.services.MovieService;
 import lombok.RequiredArgsConstructor;
@@ -45,10 +46,9 @@ public class MovieController{
 
 
     @PostMapping
-    public ResponseEntity<Movie> createNewMovie(@RequestBody Movie body){
-        //some processing
-        Movie movie = movieService.createMovie(body);
-        return ResponseEntity.ok(movie);
+    public ResponseEntity<MovieReponseDTO> createNewMovie(@RequestBody MovieRequestDTO body){
+        MovieReponseDTO movieResponseDTO  = movieService.createMovie(body);
+        return ResponseEntity.ok(movieResponseDTO);
     }
 
 }
