@@ -20,6 +20,7 @@ public class MovieService {
 
         return movieRepo.findAll();
 
+
     }
 
    public MovieReponseDTO getMovieFromId(Long id){
