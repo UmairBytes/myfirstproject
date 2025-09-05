@@ -18,4 +18,13 @@ public class MovieMapper {
         movie.setDescription(movieResponseDto.description());
         return movie;
     }
+
+    public static Movie toEntityUpdate(MovieUpdateDto movieUpdate){
+        Movie movie = new Movie();
+        movie.setBoxOffice(movieUpdate.collection());
+        movie.setRating(movieUpdate.rating());
+        movie.setReleaseDate(movieUpdate.releaseDate());
+
+        return movie;
+    }
 }
