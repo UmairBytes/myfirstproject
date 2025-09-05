@@ -8,6 +8,7 @@ import com.mycompany.myfirstproject.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,9 +17,14 @@ public class MovieService {
     @Autowired
     private MovieRepository movieRepo;
 
-    public List<Movie> getMyMovies(){
+    public List<MovieReponseDTO> getMyMovies(){
 
-        return movieRepo.findAll();
+        List <Movie>movies =  movieRepo.findAll();
+        List <MovieReponseDTO> responseList = new ArrayList<>();
+        for(Movie mov : movies){
+            responseList.add(MovieMapper.toResponseDTO(mov));
+        }
+        return responseList;
 
 
     }
